@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Nome site - Contato</title>
+  <title>ConstruLima - Contato</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/contato.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -48,7 +48,7 @@
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>UpConstruction<span>.</span></h1>
+        <h1>ConstruLima<span>.</span></h1>
       </a>
 
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
@@ -122,34 +122,55 @@
 <!-- End Google Maps -->
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row gy-4">
-                <div class="col-lg-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Nome" required>
-                </div>
-                <div class="col-lg-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" required>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" placeholder="Mensagem"></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Sua mensagem foi enviada. Obrigado!</div>
-              </div>
-              <div class="text-center"><button type="submit">Enviar</button></div>
-            </form>
-          </div><!-- End Contact Form -->
-
-        </div>
-
+        <form action="javascript:void(0);" method="post" class="php-email-form">
+          <div class="form-group">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Seu Nome" required>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Seu Email" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" required>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" name="message" rows="5" placeholder="Sua Mensagem/Avaliação"></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit">Enviar</button>
+			<button type="reset">Limpar</button>
+          </div>
+        </form>
       </div>
-    </section><!-- End Contact Section -->
+    </div>
+
+  </div>
+</section><!-- End Contact Section -->
+		<script>
+    document.querySelector('.php-email-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const form = event.target;
+        
+        // Remover mensagens anteriores, se existirem
+        const previousMessage = form.querySelector('.status-message');
+        if (previousMessage) {
+            previousMessage.remove();
+        }
+
+        // Criar e exibir a mensagem de sucesso
+        const successMessage = document.createElement('div');
+        successMessage.classList.add('status-message');
+        successMessage.textContent = 'Mensagem enviada com sucesso!';
+        successMessage.style.color = '#28a745'; // Verde para indicar sucesso
+        form.appendChild(successMessage);
+
+        // Remove a mensagem após 5 segundos
+        setTimeout(() => {
+            successMessage.remove();
+        }, 5000);
+    });
+</script>
+
 
   </main><!-- End #main -->
 
@@ -159,7 +180,8 @@
     <div class="footer-legal text-center position-relative">
       <div class="container">
         <div class="copyright">
-          &copy; Copyright <strong><span>UpConstruction</span></strong>. All Rights Reserved
+          <p>Pablo G.F.S. 2024 &copyTodos os direitos reservados.<br>
+				Trabalho acadêmico sem fins lucrativos</p>
         </div>
       </div>
     </div>
